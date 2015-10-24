@@ -30,9 +30,9 @@ Then create Models for the Entity tables
     read more on the basics here: http://guides.rubyonrails.org/getting_started.html
   
 When you generate a model, it will create a migration in db/migrate/thenewmigration and it will create a model file in app/model/thenewmodel
-- model is where you will place contraints
+
+    - model is where you will place contraints
+     guide: http://guides.rubyonrails.org/association_basics.html
 
 
-    guide: http://guides.rubyonrails.org/association_basics.html
-
-- some of the constraints will require some modifications to the migrations file (namely, belongs_to)
+    - some of the constraints will require some modifications to the migrations file (namely, belongs_to)
