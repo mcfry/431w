@@ -14,7 +14,7 @@ Install PostgreSQL
 
     https://help.ubuntu.com/community/PostgreSQL
   
-Use the rails command to generate the PostgreSQL database automatically
+Use the rails command to generate the PostgreSQL database automatically, which is setup already in rails
 
     rake db:create
 
