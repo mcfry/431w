@@ -1,5 +1,28 @@
 # 431w
 
+- Entities to Models/Migrations instructions
+
+
+    Emulate the rails generate model command
+
+
+    format: bin/rails generate model Model_name [Field_name:field_type, ...]
+    example: bin/rails generate model EInfo title:string description:string image_name:string
+
+
+    Then create the constraints using http://guides.rubyonrails.org/association_basics.html as reference
+
+
+    example: 
+
+
+        EInfo < ...
+        has_many :e_reviews, dependent: :destroy
+	    has_many :e_tags, dependent: :destroy
+	    has_one :e_category
+
+- Setup Instructions
+
 Install RVM
 
     https://rvm.io/rvm/install
