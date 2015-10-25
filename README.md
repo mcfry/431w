@@ -12,12 +12,12 @@ Entities to Models/Migrations instructions
     
     example: 
     
-    '''ruby
+    ```ruby
     EInfo < ...
     has_many :e_reviews, dependent: :destroy
     has_many :e_tags, dependent: :destroy
     has_one :e_category
-    '''
+    ```
 
 Setup Instructions
 
