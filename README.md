@@ -5,7 +5,8 @@ Emulate the rails generate model command
     ```
     format: bin/rails generate model Model_name [Field_name:field_type, ...]
     example: bin/rails generate model EInfo title:string description:string image_name:string
-    ```
+    (don't include any keys, primary are automatic, and foreign is automatic through constraints
+    '''
     
 Then create the constraints using http://guides.rubyonrails.org/association_basics.html as reference
     
