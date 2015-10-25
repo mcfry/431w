@@ -1,6 +1,4 @@
-# 431w
-
-Entities to Models/Migrations instructions
+# Entities to Models/Migrations instructions
 
 Emulate the rails generate model command
 
@@ -20,7 +18,7 @@ example:
     has_one :e_category
     ```
 
-Setup Instructions
+# Setup Instructions
 
 Install RVM
 
