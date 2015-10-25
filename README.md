@@ -1,6 +1,6 @@
 # 431w
 
-- Entities to Models/Migrations instructions
+Entities to Models/Migrations instructions
 
 
     Emulate the rails generate model command
