@@ -1,6 +1,6 @@
 class ECategory < ActiveRecord::Base
 
-	has_one :e_info
+	has_many :e_info
 
 	has_many :sub_cats, class_name: "ECategory", foreign_key: "parent_cat_id"
 

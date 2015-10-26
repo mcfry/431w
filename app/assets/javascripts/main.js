@@ -77,7 +77,12 @@ jQuery(document).ready(function($){
         }, 1200, 'easeInOutExpo');
 
         event.preventDefault();
-    });    
+    });
+
+    $(".nav a").on("click", function(){
+        $(".nav").find(".active").removeClass("active");
+        $(this).parent().addClass("active");
+    });         
     
     // Bootstrap ScrollPSY
     $('body').scrollspy({ 

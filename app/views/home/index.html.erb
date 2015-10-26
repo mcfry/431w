@@ -1,89 +1,4 @@
 <%= content_for :body  do %>
-
-    <div class="header-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="user-menu">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
-                            <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
-                            <li><a href="cart/index"><i class="fa fa-user"></i> My Cart</a></li>
-                            <li><a href="checkout/index"><i class="fa fa-user"></i> Checkout</a></li>
-                            <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="header-right">
-                        <ul class="list-unstyled list-inline">
-                            <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">currency :</span><span class="value">USD </span><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">USD</a></li>
-                                    <li><a href="#">INR</a></li>
-                                    <li><a href="#">GBP</a></li>
-                                </ul>
-                            </li>
-
-                            <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">language :</span><span class="value">English </span><b class="caret"></b></a>
-                                <ul class="dropdown-menu">
-                                    <li><a href="#">English</a></li>
-                                    <li><a href="#">French</a></li>
-                                    <li><a href="#">German</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- End header area -->
-    
-    <div class="site-branding-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="logo">
-                        <h1><a href="home/index"><span>HelloWorld</span></a></h1>
-                    </div>
-                </div>
-                
-                <div class="col-sm-6">
-                    <div class="shopping-item">
-                        <a href="cart/index">Cart - <span class="cart-amunt">$800</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- End site branding area -->
-    
-    <div class="mainmenu-area">
-        <div class="container">
-            <div class="row">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div> 
-                <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav">
-                        <li class="active"><%= link_to 'Home', root_url, 'data-no-turbolink'.to_sym => true %></li>
-                        <li><a href="shop/index">Browse</a></li>
-                        <li><a href="product/index">Single product</a></li>
-                        <li><a href="cart/index">Cart</a></li>
-                        <li><a href="checkout/index">Checkout</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>  
-            </div>
-        </div>
-    </div> <!-- End mainmenu area -->
     
     <div class="slider-area">
         <div class="zigzag-bottom"></div>
@@ -212,21 +127,30 @@
                         <h2 class="section-title">Latest Products</h2>
                         <div class="product-carousel">
 
-                            <% (1..6).each do |i| %>
+                            <% EInfo.all.order("id desc").limit(9).each do |ei| %>
                                 <div class="single-product">
                                     <div class="product-f-image">
-                                        <%= image_tag("product-" + i.to_s + ".jpg", :alt => "") %>
+                                        <%= image_tag(ei.image_name, :alt => "") %>
                                         <div class="product-hover">
                                             <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                                             <a href="product/index" class="view-details-link"><i class="fa fa-link"></i> See details</a>
                                         </div>
                                     </div>
                                     
-                                    <h2><a href="product/index">Some product</a></h2>
+                                    <h2><a href="product/index"><%= ei.title %></a></h2>
                                     
-                                    <div class="product-carousel-price">
-                                        <ins>$700.00</ins> <del>$800.00</del>
-                                    </div> 
+                                    <% Item.where(:e_info_id => ei.id).limit(1).each do |item| %>
+                                        <div class="product-carousel-price">
+                                            <ins>$<%= item.reserve_price.to_s %></ins> <del>$<%= (item.reserve_price.to_i + 10).to_s %></del> 
+                                            <%# so messy %>
+                                            <% (EReview.where(:e_info_id => ei.id).average(:rating).to_f.floor).times do %>
+                                                <i class="fa fa-star"></i>
+                                            <% end %>
+                                            <% if ((EReview.where(:e_info_id => ei.id).average(:rating).to_f * 2.0).round / 2.0) > EReview.where(:e_info_id => ei.id).average(:rating).to_f.floor %>
+                                                <i class="fa fa-star-half"></i>
+                                            <% end %>
+                                        </div>
+                                    <% end %>
                                 </div>
                             <% end %>
         
@@ -324,7 +248,7 @@
                                 <a href="product/index"><%= image_tag("product-thumb-" + i.to_s + ".jpg", :alt => "", :class => 'product-thumb') %></a>
                                 <h2><a href="product/index">Some product</a></h2>
                                 <div class="product-wid-rating">
-                                    <%= (1..5).each do |i| %>
+                                    <% (1..5).each do |i| %>
                                         <i class="fa fa-star"></i>
                                     <% end %>
                                 </div>
@@ -341,81 +265,4 @@
         </div>
     </div> <!-- End product widget area -->
     
-    <div class="footer-top-area">
-        <div class="zigzag-bottom"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-3 col-sm-6">
-                    <div class="footer-about-us">
-                        <h2>e<span>Electronics</span></h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis sunt id doloribus vero quam laborum quas alias dolores blanditiis iusto consequatur, modi aliquid eveniet eligendi iure eaque ipsam iste, pariatur omnis sint! Suscipit, debitis, quisquam. Laborum commodi veritatis magni at?</p>
-                        <div class="footer-social">
-                            <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-youtube"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-pinterest"></i></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="col-md-3 col-sm-6">
-                    <div class="footer-menu">
-                        <h2 class="footer-wid-title">User Navigation </h2>
-                        <ul>
-                            <li><a href="#">My account</a></li>
-                            <li><a href="#">Order history</a></li>
-                            <li><a href="#">Wishlist</a></li>
-                            <li><a href="#">Vendor contact</a></li>
-                            <li><%= link_to 'Front page', root_url, 'data-no-turbolink'.to_sym => true %></li>
-                        </ul>                        
-                    </div>
-                </div>
-                
-                <div class="col-md-3 col-sm-6">
-                    <div class="footer-menu">
-                        <h2 class="footer-wid-title">Categories</h2>
-                        <ul>
-                            <li><a href="#">Mobile Phone</a></li>
-                            <li><a href="#">Home accesseries</a></li>
-                            <li><a href="#">LED TV</a></li>
-                            <li><a href="#">Computer</a></li>
-                            <li><a href="#">Gadets</a></li>
-                        </ul>                        
-                    </div>
-                </div>
-                
-                <div class="col-md-3 col-sm-6">
-                    <div class="footer-newsletter">
-                        <h2 class="footer-wid-title">Newsletter</h2>
-                        <p>Sign up to our newsletter and get exclusive deals you wont find anywhere else straight to your inbox!</p>
-                        <div class="newsletter-form">
-                            <form action="#">
-                                <input type="email" placeholder="Type your email">
-                                <input type="submit" value="Subscribe">
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- End footer top area -->
-    
-    <div class="footer-bottom-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8">
-                </div>
-                
-                <div class="col-md-4">
-                    <div class="footer-card-icon">
-                        <i class="fa fa-cc-discover"></i>
-                        <i class="fa fa-cc-mastercard"></i>
-                        <i class="fa fa-cc-paypal"></i>
-                        <i class="fa fa-cc-visa"></i>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> <!-- End footer bottom area -->
 <% end %>

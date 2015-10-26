@@ -2,15 +2,15 @@ Rails.application.routes.draw do
 
   root  'home#index'
   
-  get 'product/index' => 'product#index'
+  get 'product/index' => 'product#index', as: 'product'
 
-  get 'shop/index' => 'shop#index'
+  get 'shop/index' => 'shop#index', as: 'shop'
 
-  get 'checkout/index' => 'checkout#index'
+  get 'checkout/index' => 'checkout#index', as: 'checkout'
 
-  get 'cart/index' => 'cart#index'
+  get 'cart/index' => 'cart#index', as: 'cart'
 
-  get 'home/index' => 'home#index'
+  get 'home/index' => 'home#index', as: 'home'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
