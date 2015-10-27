@@ -5,6 +5,7 @@ class CreateEInfos < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.string :image_name
+      t.belongs_to :seller, index: true
 
       t.timestamps null: false
     end
