@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root  'home#index'
   
-  get 'product/index' => 'product#index', as: 'product'
+  get 'product/index/:id' => 'product#index', as: 'product'
 
   get 'shop/index' => 'shop#index', as: 'shop'
 

@@ -3,9 +3,10 @@ class ShopController < ApplicationController
   def index
 
   	@shop_array = Array.new
+    length = EInfo.all().length
 
   	(16).times do
-  		push_rand(16)
+  		push_rand(length)
   	end
 
   end
@@ -20,4 +21,5 @@ class ShopController < ApplicationController
   	end
 
   end
+  
 end

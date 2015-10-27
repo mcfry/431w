@@ -133,7 +133,7 @@
                                         <%= image_tag(ei.image_name, :alt => "") %>
                                         <div class="product-hover">
                                             <a href="#" class="add-to-cart-link"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                                            <a href="product/index" class="view-details-link"><i class="fa fa-link"></i> See details</a>
+                                            <i class="fa fa-link"></i><%= link_to 'See details', product_url(:id => ei.id), 'data-no-turbolink'.to_sym => true, :class => 'view-details-link' %>
                                         </div>
                                     </div>
                                     

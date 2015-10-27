@@ -73,7 +73,7 @@
                     <ul class="nav navbar-nav" id="main-menu">
                         <li class="active"><%= link_to 'Home', root_url, 'data-no-turbolink'.to_sym => true %></li>
                         <li><%= link_to 'Browse', shop_url, 'data-no-turbolink'.to_sym => true %></li>
-                        <li><%= link_to 'Product', product_url, 'data-no-turbolink'.to_sym => true %></li>
+                        <li><%= link_to 'Product', product_url(:id => 1), 'data-no-turbolink'.to_sym => true %></li>
                         <li><%= link_to 'Cart', cart_url, 'data-no-turbolink'.to_sym => true %></li>
                         <li><%= link_to 'Checkout', checkout_url, 'data-no-turbolink'.to_sym => true %></li>
                     </ul>
