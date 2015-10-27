@@ -28,6 +28,9 @@ EInfo.create(e_category_id: 23, title: 'Puss in Boots', description: 'Starring V
 EInfo.create(e_category_id: 14, title: 'Las gafas de sol', description: 'Sunglasses', image_name: 'sunglasses.jpg') #19
 EInfo.create(e_category_id: 24, title: 'Uno', description: 'A family-friendly game', image_name: 'uno.jpg') #20
 EInfo.create(e_category_id: 20, title: 'Dog Costume', description: 'Make that pet sparkle', image_name: 'dog_costume.jpg') #21
+EInfo.create(e_category_id: 26, title: 'Old Motorola', description: 'Sturdy phone', image_name: 'old_motorola.jpg') #22
+EInfo.create(e_category_id: 17, title: 'Black Case', description: 'Another computer case', image_name: 'another_case.png') #23
+EInfo.create(e_category_id: 27, title: 'Minecraft', description: 'A family-friendly game', image_name: 'minecraft.jpg') #24
 
 # Items
 Item.create(e_info_id: 1, quantity: 20, reserve_price: 799, auction: false)
@@ -51,6 +54,9 @@ Item.create(e_info_id: 18, quantity: 25, reserve_price: 19, auction: false)
 Item.create(e_info_id: 19, quantity: 13, reserve_price: 19, auction: false)
 Item.create(e_info_id: 20, quantity: 25, reserve_price: 14, auction: false)
 Item.create(e_info_id: 21, quantity: 33, reserve_price: 49, auction: false)
+Item.create(e_info_id: 22, quantity: 13, reserve_price: 19, auction: false)
+Item.create(e_info_id: 23, quantity: 25, reserve_price: 59, auction: false)
+Item.create(e_info_id: 24, quantity: 33, reserve_price: 29, auction: false)
 
 
 # ECategories (NOT ALLOWED TO DIRECT LINK 1..7 - They Are Main Categories)
@@ -80,6 +86,8 @@ ECategory.create(name: 'Action Movies', parent_cat_id: 5) #22
 ECategory.create(name: 'Comedy Movies', parent_cat_id: 5) #23
 ECategory.create(name: 'Card Games', parent_cat_id: 6) #24
 ECategory.create(name: 'Laptops', parent_cat_id: 7) #25
+ECategory.create(name: 'Phones', parent_cat_id: 2) #26
+ECategory.create(name: 'Video Games', parent_cat_id: 6) #27
 
 # EReviews
 EReview.create(e_info_id: 1, rating: 2, comment: 'The touch screen broke and has been psuedo clicking all over the place')
@@ -113,6 +121,12 @@ EReview.create(e_info_id: 20, rating: 3, comment: "It's alright")
 EReview.create(e_info_id: 21, rating: 2, comment: 'The broke')
 EReview.create(e_info_id: 21, rating: 5, comment: "It's very good")
 EReview.create(e_info_id: 21, rating: 3, comment: "It's alright")
+EReview.create(e_info_id: 22, rating: 2, comment: 'The broke')
+EReview.create(e_info_id: 22, rating: 5, comment: "It's very good")
+EReview.create(e_info_id: 23, rating: 3, comment: "It's alright")
+EReview.create(e_info_id: 23, rating: 2, comment: 'The broke')
+EReview.create(e_info_id: 24, rating: 5, comment: "It's very good")
+EReview.create(e_info_id: 24, rating: 3, comment: "It's alright")
 
 # ETags
 # ps4
@@ -221,3 +235,15 @@ ETag.create(e_info_id: 20, name: 'game')
 ETag.create(e_info_id: 21, name: 'cute')
 ETag.create(e_info_id: 21, name: 'sparklies')
 ETag.create(e_info_id: 21, name: 'dressed to impress')
+
+ETag.create(e_info_id: 22, name: 'strong')
+ETag.create(e_info_id: 22, name: 'old')
+ETag.create(e_info_id: 22, name: 'used to be fast')
+
+ETag.create(e_info_id: 23, name: 'awesome')
+ETag.create(e_info_id: 23, name: 'sparklies')
+ETag.create(e_info_id: 23, name: 'red')
+
+ETag.create(e_info_id: 21, name: 'blocks')
+ETag.create(e_info_id: 21, name: 'fun')
+ETag.create(e_info_id: 21, name: 'kids')
