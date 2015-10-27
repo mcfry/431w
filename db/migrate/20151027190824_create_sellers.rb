@@ -8,7 +8,7 @@ class CreateSellers < ActiveRecord::Migration
       t.string :email
       t.string :address
       t.string :description
-      t.belongs_to :registered_user
+      t.belongs_to :registered_user, index: true
 
       t.timestamps null: false
     end

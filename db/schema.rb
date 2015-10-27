@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151027190824) do
+ActiveRecord::Schema.define(version: 20151027193600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 20151027190824) do
 
   add_index "bid_infos", ["item_id"], name: "index_bid_infos_on_item_id", using: :btree
 
+  create_table "customer_reviews", force: :cascade do |t|
+    t.integer  "rating"
+    t.string   "comment"
+    t.integer  "order_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "customer_reviews", ["order_id"], name: "index_customer_reviews_on_order_id", using: :btree
+
   create_table "customers", force: :cascade do |t|
     t.string   "email"
     t.string   "shipping_address"
@@ -45,6 +55,8 @@ ActiveRecord::Schema.define(version: 20151027190824) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
+
+  add_index "customers", ["registered_user_id"], name: "index_customers_on_registered_user_id", using: :btree
 
   create_table "e_categories", force: :cascade do |t|
     t.string   "name"
@@ -132,5 +144,7 @@ ActiveRecord::Schema.define(version: 20151027190824) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
+
+  add_index "sellers", ["registered_user_id"], name: "index_sellers_on_registered_user_id", using: :btree
 
 end

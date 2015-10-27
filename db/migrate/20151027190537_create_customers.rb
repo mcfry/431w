@@ -4,7 +4,7 @@ class CreateCustomers < ActiveRecord::Migration
       t.string :email
       t.string :shipping_address
       t.string :phone_number
-      t.belongs_to :registered_user
+      t.belongs_to :registered_user, index: true
 
       t.timestamps null: false
     end
