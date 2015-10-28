@@ -29,8 +29,15 @@
 
                                 <% Item.where(:e_info_id => ei.id).limit(1).each do |item| %>
                                     <div class="product-carousel-price">
-                                        <ins>$<%= item.reserve_price %></ins> <del>$<%= (item.reserve_price.to_i + 10) %></del>
-                                    </div> 
+                                        <ins>$<%= item.reserve_price %></ins> <del>$<%= (item.reserve_price.to_i + 10) %></del>&nbsp;&nbsp;
+                                        <%# so messy %>
+                                        <% (EReview.where(:e_info_id => ei.id).average(:rating).to_f.floor).times do %>
+                                            <i class="fa fa-star"></i>
+                                        <% end %>
+                                        <% if ((EReview.where(:e_info_id => ei.id).average(:rating).to_f * 2.0).round / 2.0) > EReview.where(:e_info_id => ei.id).average(:rating).to_f.floor %>
+                                            <i class="fa fa-star-half"></i>
+                                        <% end %>
+                                    </div>
                                 <% end %>
                                 
                                 <div class="product-option-shop">
@@ -53,11 +60,11 @@
                                 <span aria-hidden="true">&laquo;</span>
                               </a>
                             </li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
+                            <li><%= link_to '1', shop_url, 'data-no-turbolink'.to_sym => true %></li>
+                            <li><%= link_to '2', shop_url, 'data-no-turbolink'.to_sym => true %></li>
+                            <li><%= link_to '3', shop_url, 'data-no-turbolink'.to_sym => true %></li>
+                            <li><%= link_to '4', shop_url, 'data-no-turbolink'.to_sym => true %></li>
+                            <li><%= link_to '5', shop_url, 'data-no-turbolink'.to_sym => true %></li>
                             <li>
                               <a href="#" aria-label="Next">
                                 <span aria-hidden="true">&raquo;</span>
