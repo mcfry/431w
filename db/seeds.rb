@@ -79,7 +79,7 @@ ECategory.create(name: 'Video Games', parent_cat_id: 2) #15
 ECategory.create(name: 'Printers', parent_cat_id: 7) #16
 ECategory.create(name: 'Cases', parent_cat_id: 7) #17
 ECategory.create(name: 'Houseware', parent_cat_id: 1) #18
-ECategory.create(name: 'Mugs', parent_cat_id: 17) #19
+ECategory.create(name: 'Mugs', parent_cat_id: 18) #19
 ECategory.create(name: 'Costumes', parent_cat_id: 4) #20
 ECategory.create(name: 'Gaming Consoles', parent_cat_id: 2) #21
 ECategory.create(name: 'Action Movies', parent_cat_id: 5) #22
