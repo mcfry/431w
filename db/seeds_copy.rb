@@ -31,32 +31,6 @@ EInfo.create(e_category_id: 20, title: 'Dog Costume', description: 'Make that pe
 EInfo.create(e_category_id: 26, title: 'Old Motorola', description: 'Sturdy phone', image_name: 'old_motorola.jpg') #22
 EInfo.create(e_category_id: 17, title: 'Black Case', description: 'Another computer case', image_name: 'another_case.png') #23
 EInfo.create(e_category_id: 27, title: 'Minecraft', description: 'A family-friendly game', image_name: 'minecraft.jpg') #24
-EInfo.create(e_category_id: 15, title: 'Fallin5', description: 'Remember to order some nuka cola as well.', image_name: 'fallin.jpg') #25
-EInfo.create(e_category_id: 15, title: 'Earthrim', description: 'The best sandbox game of 2011.', image_name: 'earthrim.jpg') #26
-EInfo.create(e_category_id: 9, title: 'RazorMX518', description: 'Well designed gaming mouse.', image_name: 'mx518.jpg') #27
-EInfo.create(e_category_id: 11, title: 'Microphone', description: 'Gotta record!', image_name: 'microphone.jpg') #28
-EInfo.create(e_category_id: 15, title: 'SuperLuigi 3', description: 'Green is better', image_name: 'superluigi.jpg') #29
-EInfo.create(e_category_id: 26, title: 'Samsong Universe II', description: 'Newly innovated smartphone', image_name: 'samsonguniv2.jpg') #30
-EInfo.create(e_category_id: 24, title: 'Monopoly', description: 'Friendship breaker', image_name: 'monopoly.jpg') #31
-EInfo.create(e_category_id: 23, title: 'Mr.Bean', description: 'THE funniest movie of year', image_name: 'mrbean.jpg') #32
-EInfo.create(e_category_id: 25, title: 'Asus ROG 98', description: 'A powerful laptop', image_name: 'rog98.jpg') #33
-EInfo.create(e_category_id: 18, title: 'Baking Powder', description: 'Versatile as for cleaning and baking', image_name: 'bakingpowder.jpg') #34
-EInfo.create(e_category_id: 9, title: 'Basic 3-Button Mouse', description: 'It works', image_name: '3butmouse.jpg') #35
-EInfo.create(e_category_id: 9, title: 'RedragonM601', description: 'It works better!', image_name: 'M601mouse.jpg') #36
-EInfo.create(e_category_id: 16, title: 'HP Envy 4500', description: 'Wireless printer all-in-one', image_name: 'Envy4500.jpg') #37
-EInfo.create(e_category_id: 16, title: 'Epson XP 420', description: 'Printer with Scanner', image_name: 'XP420.jpg') #38
-EInfo.create(e_category_id: 15, title: 'Uncharted 4', description: 'Playable Movie', image_name: 'uncharted4.jpg') #39
-EInfo.create(e_category_id: 15, title: 'Call of Duty 2', description: 'Recall the old days', image_name: 'cod2.jpg') #40
-EInfo.create(e_category_id: 24, title: 'Card against Humanity', description: 'A family-friendly game', image_name: 'cahcardgame.jpg') #41
-EInfo.create(e_category_id: 21, title: 'XBOX two', description: 'I think this is the best console', image_name: 'xbox1.jpg') #42
-EInfo.create(e_category_id: 8, title: 'Acer G226', description: 'High definition monitor', image_name: 'acerg226.jpg') #43
-EInfo.create(e_category_id: 8, title: 'Asus VS207D', description: 'Back-lit LED Monitor', image_name: 'asusvs207d.jpg') #44
-EInfo.create(e_category_id: 8, title: 'HP Pavilion', description: '27 inches white monitor', image_name: 'hppavilion.jpg') #45
-EInfo.create(e_category_id: 21, title: 'NES 64', description: 'Red and white', image_name: 'NES64.jpg') #46
-EInfo.create(e_category_id: 18, title: 'Cast Iron pan', description: 'Perfect for grilling and hammering', image_name: 'castironpan.jpg') #47
-EInfo.create(e_category_id: 18, title: 'Knife set', description: 'Unless you want to cut things by hand', image_name: 'knifeset.jpg') #48
-EInfo.create(e_category_id: 25, title: 'Toshiba Satillite', description: 'Economical laptop with win10.', image_name: 'tsbsatlaptop.jpg') #49
-EInfo.create(e_category_id: 11, title: 'LG Music Flow H3', description: 'Hey it is smart Hi-Fi', image_name: 'LGH3speaker.jpg') #50
 
 # Items
 Item.create(e_info_id: 1, quantity: 20, reserve_price: 799, auction: false)
@@ -83,32 +57,7 @@ Item.create(e_info_id: 21, quantity: 33, reserve_price: 49, auction: false)
 Item.create(e_info_id: 22, quantity: 13, reserve_price: 19, auction: false)
 Item.create(e_info_id: 23, quantity: 25, reserve_price: 59, auction: false)
 Item.create(e_info_id: 24, quantity: 33, reserve_price: 29, auction: false)
-Item.create(e_info_id: 25, quantity: 10, reserve_price: 59, auction: false)
-Item.create(e_info_id: 26, quantity: 55, reserve_price: 39, auction: false)
-Item.create(e_info_id: 27, quantity: 23, reserve_price: 15, auction: false)
-Item.create(e_info_id: 28, quantity: 100, reserve_price: 12, auction: false)
-Item.create(e_info_id: 29, quantity: 46, reserve_price: 39, auction: false)
-Item.create(e_info_id: 30, quantity: 5, reserve_price: 219, auction: false)
-Item.create(e_info_id: 31, quantity: 32, reserve_price: 20, auction: false)
-Item.create(e_info_id: 32, quantity: 4, reserve_price: 19, auction: false)
-Item.create(e_info_id: 33, quantity: 2, reserve_price: 970, auction: false)
-Item.create(e_info_id: 34, quantity: 125, reserve_price: 5, auction: false)
-Item.create(e_info_id: 35, quantity: 32, reserve_price: 20, auction: false)
-Item.create(e_info_id: 36, quantity: 14, reserve_price: 67, auction: false)
-Item.create(e_info_id: 37, quantity: 12, reserve_price: 45, auction: false)
-Item.create(e_info_id: 38, quantity: 8, reserve_price: 66, auction: false)
-Item.create(e_info_id: 39, quantity: 13, reserve_price: 59, auction: false)
-Item.create(e_info_id: 40, quantity: 3, reserve_price: 10, auction: false)
-Item.create(e_info_id: 41, quantity: 42, reserve_price: 19, auction: false)
-Item.create(e_info_id: 42, quantity: 4, reserve_price: 399, auction: false)
-Item.create(e_info_id: 43, quantity: 13, reserve_price: 109, auction: false)
-Item.create(e_info_id: 44, quantity: 7, reserve_price: 119, auction: false)
-Item.create(e_info_id: 45, quantity: 6, reserve_price: 89, auction: false)
-Item.create(e_info_id: 46, quantity: 1, reserve_price: 120, auction: false)
-Item.create(e_info_id: 47, quantity: 12, reserve_price: 64, auction: false)
-Item.create(e_info_id: 48, quantity: 37, reserve_price: 25, auction: false)
-Item.create(e_info_id: 49, quantity: 18, reserve_price: 289, auction: false)
-Item.create(e_info_id: 50, quantity: 18, reserve_price: 45, auction: false)
+
 
 # ECategories (NOT ALLOWED TO DIRECT LINK 1..7 - They Are Main Categories)
 ECategory.create(name: 'root', parent_cat_id: 0) #1
@@ -178,41 +127,6 @@ EReview.create(e_info_id: 23, rating: 3, comment: "It's alright")
 EReview.create(e_info_id: 23, rating: 2, comment: 'The broke')
 EReview.create(e_info_id: 24, rating: 5, comment: "It's very good")
 EReview.create(e_info_id: 24, rating: 3, comment: "It's alright")
-EReview.create(e_info_id: 25, rating: 2, comment: 'Not fun at all')
-EReview.create(e_info_id: 25, rating: 5, comment: "It's very good")
-EReview.create(e_info_id: 26, rating: 3, comment: "It's alright")
-EReview.create(e_info_id: 27, rating: 2, comment: 'The broke')
-EReview.create(e_info_id: 28, rating: 5, comment: "It's very good")
-EReview.create(e_info_id: 29, rating: 3, comment: "It's alright")
-EReview.create(e_info_id: 30, rating: 2, comment: 'The broke')
-EReview.create(e_info_id: 31, rating: 5, comment: "It's very good")
-EReview.create(e_info_id: 32, rating: 3, comment: "It's alright")
-EReview.create(e_info_id: 33, rating: 2, comment: 'The broke')
-EReview.create(e_info_id: 33, rating: 5, comment: "It's very good")
-EReview.create(e_info_id: 34, rating: 3, comment: "It's alright")
-EReview.create(e_info_id: 35, rating: 2, comment: 'The broke')
-EReview.create(e_info_id: 35, rating: 5, comment: "It's very good")
-EReview.create(e_info_id: 35, rating: 3, comment: "It's alright")
-EReview.create(e_info_id: 36, rating: 2, comment: 'The broke')
-EReview.create(e_info_id: 37, rating: 5, comment: "It's very good")
-EReview.create(e_info_id: 38, rating: 3, comment: "It's alright")
-EReview.create(e_info_id: 39, rating: 2, comment: 'The broke')
-EReview.create(e_info_id: 40, rating: 5, comment: "It's very good")
-EReview.create(e_info_id: 40, rating: 5, comment: "It's very good")
-EReview.create(e_info_id: 41, rating: 3, comment: "It's alright")
-EReview.create(e_info_id: 42, rating: 2, comment: 'The broke')
-EReview.create(e_info_id: 43, rating: 5, comment: "It's very good")
-EReview.create(e_info_id: 44, rating: 3, comment: "It's alright")
-EReview.create(e_info_id: 45, rating: 2, comment: 'The broke')
-EReview.create(e_info_id: 46, rating: 5, comment: "It's very good")
-EReview.create(e_info_id: 47, rating: 3, comment: "It's alright")
-EReview.create(e_info_id: 48, rating: 2, comment: 'The broke')
-EReview.create(e_info_id: 48, rating: 5, comment: "It's very good")
-EReview.create(e_info_id: 48, rating: 3, comment: "It's alright")
-EReview.create(e_info_id: 49, rating: 2, comment: 'The broke')
-EReview.create(e_info_id: 49, rating: 5, comment: "It's very good")
-EReview.create(e_info_id: 50, rating: 3, comment: "It's alright")
-EReview.create(e_info_id: 50, rating: 2, comment: 'The broke')
 
 # ETags
 # ps4
@@ -333,113 +247,3 @@ ETag.create(e_info_id: 23, name: 'red')
 ETag.create(e_info_id: 24, name: 'blocks')
 ETag.create(e_info_id: 24, name: 'fun')
 ETag.create(e_info_id: 24, name: 'kids')
-
-# ETags
-ETag.create(e_info_id: 25, name: 'games')
-ETag.create(e_info_id: 25, name: 'sandbox')
-ETag.create(e_info_id: 25, name: 'cool')
-ETag.create(e_info_id: 25, name: 'single player')
-ETag.create(e_info_id: 25, name: 'newrelease')
-
-ETag.create(e_info_id: 26, name: 'old game')
-ETag.create(e_info_id: 26, name: 'customize')
-ETag.create(e_info_id: 26, name: 'sandbox')
-
-# 3d printer
-ETag.create(e_info_id: 27, name: 'mouse')
-ETag.create(e_info_id: 27, name: 'gaming')
-
-ETag.create(e_info_id: 28, name: 'microphone')
-ETag.create(e_info_id: 28, name: 'high quality')
-ETag.create(e_info_id: 28, name: 'recording')
-
-ETag.create(e_info_id: 29, name: 'game')
-ETag.create(e_info_id: 29, name: 'ninjudo')
-ETag.create(e_info_id: 29, name: 'green')
-
-ETag.create(e_info_id: 30, name: 'samsong')
-ETag.create(e_info_id: 30, name: 'universe')
-ETag.create(e_info_id: 30, name: 'cellphone')
-
-ETag.create(e_info_id: 31, name: 'monopoly')
-ETag.create(e_info_id: 31, name: 'card')
-ETag.create(e_info_id: 31, name: 'boardgame')
-
-ETag.create(e_info_id: 32, name: 'movie')
-ETag.create(e_info_id: 32, name: 'comedy')
-ETag.create(e_info_id: 32, name: 'mr.bean')
-
-ETag.create(e_info_id: 33, name: 'laptop')
-ETag.create(e_info_id: 33, name: 'asus')
-ETag.create(e_info_id: 33, name: 'gaming')
-
-ETag.create(e_info_id: 34, name: 'baking')
-ETag.create(e_info_id: 34, name: 'cleaning')
-ETag.create(e_info_id: 34, name: 'kitchen')
-
-ETag.create(e_info_id: 35, name: 'mouse')
-ETag.create(e_info_id: 35, name: 'cheap')
-ETag.create(e_info_id: 35, name: 'basic')
-
-# puppy
-ETag.create(e_info_id: 36, name: 'mouse')
-ETag.create(e_info_id: 36, name: 'gaming')
-ETag.create(e_info_id: 36, name: 'precision')
-
-ETag.create(e_info_id: 37, name: 'printer')
-ETag.create(e_info_id: 37, name: 'wireless')
-ETag.create(e_info_id: 37, name: 'all-in-one')
-
-ETag.create(e_info_id: 38, name: 'printer')
-ETag.create(e_info_id: 38, name: 'scanner')
-ETag.create(e_info_id: 38, name: 'all-in-one')
-
-ETag.create(e_info_id: 39, name: 'videogame')
-ETag.create(e_info_id: 39, name: 'best')
-ETag.create(e_info_id: 39, name: 'game')
-
-ETag.create(e_info_id: 40, name: 'cod')
-ETag.create(e_info_id: 40, name: 'videogame')
-ETag.create(e_info_id: 40, name: 'old game')
-
-ETag.create(e_info_id: 41, name: 'card')
-ETag.create(e_info_id: 41, name: 'board game')
-ETag.create(e_info_id: 41, name: 'not for kids')
-
-ETag.create(e_info_id: 42, name: 'game console')
-ETag.create(e_info_id: 42, name: 'new')
-ETag.create(e_info_id: 42, name: 'xbox')
-
-ETag.create(e_info_id: 43, name: 'monitor')
-ETag.create(e_info_id: 43, name: 'acer')
-ETag.create(e_info_id: 43, name: 'high definition')
-
-
-ETag.create(e_info_id: 44, name: 'monitor')
-ETag.create(e_info_id: 44, name: 'asus')
-ETag.create(e_info_id: 44, name: 'backlit')
-
-
-ETag.create(e_info_id: 45, name: 'monitor')
-ETag.create(e_info_id: 45, name: 'hp')
-ETag.create(e_info_id: 45, name: 'bigscreen')
-
-
-ETag.create(e_info_id: 46, name: 'game console')
-ETag.create(e_info_id: 46, name: 'ninjudo')
-ETag.create(e_info_id: 46, name: 'old')
-
-ETag.create(e_info_id: 47, name: 'pan')
-ETag.create(e_info_id: 47, name: 'cast iron')
-ETag.create(e_info_id: 47, name: 'kitchen')
-
-ETag.create(e_info_id: 48, name: 'knife')
-ETag.create(e_info_id: 48, name: 'kitchen')
-
-ETag.create(e_info_id: 49, name: 'laptop')
-ETag.create(e_info_id: 49, name: 'win10')
-ETag.create(e_info_id: 49, name: 'cheap')
-
-ETag.create(e_info_id: 50, name: 'hi-fi')
-ETag.create(e_info_id: 50, name: 'loud')
-ETag.create(e_info_id: 50, name: 'speaker')
