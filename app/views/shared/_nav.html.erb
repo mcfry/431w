@@ -4,11 +4,15 @@
                 <div class="col-md-8">
                     <div class="user-menu">
                         <ul>
-                            <li><a href="#"><i class="fa fa-user"></i> My Account</a></li>
+                            <% if logged_in? %>
+                            <i class="fa fa-user"></i><li><a href = "/registered_users/<%= @current_user.id%>">My account</a></li>
                             <li><a href="#"><i class="fa fa-heart"></i> Wishlist</a></li>
                             <li><%= link_to 'Cart', cart_url, 'data-no-turbolink'.to_sym => true %></li>
                             <li><%= link_to 'Checkout', checkout_url, 'data-no-turbolink'.to_sym => true %></li>
-                            <li><a href="#"><i class="fa fa-user"></i> Login</a></li>
+                            <i class="fa fa-user"></i><li><%= link_to 'Logout', logout_path, method: "delete" %></li>
+                            <% else %>
+                            <i class="fa fa-user"></i><li><%= link_to 'Login', login_url, 'data-no-turbolink'.to_sym => true %></li>
+                            <% end %>
                         </ul>
                     </div>
                 </div>

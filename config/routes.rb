@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
 
-  get 'registered_users/new'
+  get 'login' => 'sessions#new'
+
+  post 'login' => 'sessions#create'
+
+  delete 'logout' => 'sessions#destroy'
+
+  get 'signup' => 'registered_users#new'
 
   root  'home#index'
   
@@ -13,6 +19,8 @@ Rails.application.routes.draw do
   get 'cart/index' => 'cart#index', as: 'cart'
 
   get 'home/index' => 'home#index', as: 'home'
+
+  get 'user' => 'registered_users'
 
   resources :registered_users
 

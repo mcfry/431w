@@ -11,9 +11,10 @@ class RegisteredUsersController < ApplicationController
  	@user = RegisteredUser.new(user_params)
 
   	if @user.save
-  		flash[:success] = "Welcome to HelloWorld!"
+  		flash[:success] = "Welcome to HelloWorld!, login to continue"
   		redirect_to @user
   	else
+  		flash[:danger] = 'Invalid username'
   		render 'new'
   	end
 
