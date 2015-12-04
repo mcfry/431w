@@ -7,7 +7,7 @@ class CreateOrders < ActiveRecord::Migration
       t.string :address
       t.datetime :stime
       t.belongs_to :item, index: true
-      t.belongs_to :customer, index: true
+      t.belongs_to :registered_user, index: true
 
       t.timestamps null: false
     end

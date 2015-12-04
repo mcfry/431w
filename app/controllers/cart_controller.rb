@@ -1,4 +1,9 @@
 class CartController < ApplicationController
-  def index
-  end
+
+	include SessionsHelper
+	
+	def index
+
+	end
+
 end

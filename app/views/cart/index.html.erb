@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="product-bit-title text-center">
-                        <h2>Shopping Cart</h2>
+                        <h2>Orders</h2>
                     </div>
                 </div>
             </div>
@@ -18,13 +18,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <div class="single-sidebar">
+                    <!-- <div class="single-sidebar">
                         <h2 class="sidebar-title">Search Products</h2>
                         <form action="#">
                             <input type="text" placeholder="Search products...">
                             <input type="submit" value="Search">
                         </form>
-                    </div>
+                    </div> -->
                     
                     <div class="single-sidebar">
                         <h2 class="sidebar-title">Products</h2>
@@ -71,7 +71,51 @@
                 </div>
                 
                 <div class="col-md-8">
-                    <div class="product-content-right">
+
+                <% if !current_user.nil? %>
+                    <% Order.where(registered_user_id: current_user.id).each do |order| %>
+                        <% Item.where(id: order.item_id).limit(1).each do |item| %>
+                            <% EInfo.where(id: item.e_info_id).limit(1).each do |eitem| %>
+                                <table cellspacing="0" class="shop_table cart">
+                                    <thead>
+                                        <tr>
+                                            <th class="product-name">Bank</th>
+                                            <th class="product-price">Credit</th>
+                                            <th class="product-quantity">Address</th>
+                                            <th class="product-subtotal">Name</th>
+                                            <th class="product-subtotal">Price</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr class="cart_item">
+                                            <td class="product-name">
+                                                <a href="single-product.html"><%= order.bank %></a> 
+                                            </td>
+
+                                            <td class="product-price">
+                                                <span class="amount"><%= order.credit %></span> 
+                                            </td>
+
+                                            <td class="product-name">
+                                                <a href="single-product.html"><%= order.address %></a> 
+                                            </td>
+
+                                            <td class="product-name">
+                                                <a href="single-product.html"><%= eitem.title %></a> 
+                                            </td>
+
+                                            <td class="product-name">
+                                                <a href="single-product.html"><%= item.reserve_price %></a> 
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            <% end %>
+                        <% end %>
+                    <% end %>
+                <% end %>
+
+                    <!-- <div class="product-content-right">
                         <div class="woocommerce">
                             <form method="post" action="#">
                                 <table cellspacing="0" class="shop_table cart">
@@ -450,8 +494,8 @@
 
 
                             </div>
-                        </div>                        
-                    </div>                    
+                        </div>                       
+                    </div> -->                   
                 </div>
             </div>
         </div>

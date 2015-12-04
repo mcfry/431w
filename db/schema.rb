@@ -117,13 +117,13 @@ ActiveRecord::Schema.define(version: 20151027193600) do
     t.string   "address"
     t.datetime "stime"
     t.integer  "item_id"
-    t.integer  "customer_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "registered_user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
-  add_index "orders", ["customer_id"], name: "index_orders_on_customer_id", using: :btree
   add_index "orders", ["item_id"], name: "index_orders_on_item_id", using: :btree
+  add_index "orders", ["registered_user_id"], name: "index_orders_on_registered_user_id", using: :btree
 
   create_table "registered_users", force: :cascade do |t|
     t.string   "username"

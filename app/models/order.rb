@@ -1,7 +1,7 @@
 class Order < ActiveRecord::Base
 
 	belongs_to :item
-	belongs_to :customer
+	belongs_to :registered_user
 	has_many :customer_reviews
 
 end

@@ -22,6 +22,10 @@ class ProductController < ApplicationController
       return
     end
     
+    params[:quantity].to_i.times do |i|
+      Order.create(:bank => 'Nat Penn', credit: '999xxxxxxxxxxxxx', address: '1234 High Hill Rd', item_id: params[:id], registered_user_id: current_user.id)
+    end
+
     item = Item.where(:e_info_id => params[:id]).limit(1)
     item.each { |ei|
       item = ei
