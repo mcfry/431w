@@ -22,6 +22,11 @@ Rails.application.routes.draw do
 
   get 'user' => 'registered_users'
 
+  get 'search' => 'search#index', as: 'search'
+
+  get 'product/delete/:id' => 'product#delete', as: 'product_delete'
+  get 'product/bid/:id' => 'product#bid', as: 'product_bid'
+
   resources :registered_users
 
   # The priority is based upon order of creation: first created -> highest priority.

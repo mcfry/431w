@@ -38,6 +38,8 @@ Rails.application.configure do
 
   config.log_level = :info
 
+  config.time_zone = 'Eastern Time (US & Canada)'
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

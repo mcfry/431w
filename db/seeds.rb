@@ -59,33 +59,33 @@ EInfo.create(e_category_id: 25, title: 'Toshiba Satillite', description: 'Econom
 EInfo.create(e_category_id: 11, title: 'LG Music Flow H3', description: 'Hey it is smart Hi-Fi', image_name: 'LGH3speaker.jpg') #50
 
 # Items
-Item.create(e_info_id: 1, quantity: 20, reserve_price: 799, auction: false)
-Item.create(e_info_id: 2, quantity: 25, reserve_price: 299, auction: false)
-Item.create(e_info_id: 3, quantity: 10, reserve_price: 999, auction: false)
-Item.create(e_info_id: 4, quantity: 100, reserve_price: 49, auction: false)
-Item.create(e_info_id: 5, quantity: 79, reserve_price: 59, auction: false)
-Item.create(e_info_id: 6, quantity: 400, reserve_price: 29, auction: false)
-Item.create(e_info_id: 7, quantity: 1, reserve_price: 99, auction: false)
-Item.create(e_info_id: 8, quantity: 25, reserve_price: 29, auction: false)
-Item.create(e_info_id: 9, quantity: 60, reserve_price: 79, auction: false)
-Item.create(e_info_id: 10, quantity: 50, reserve_price: 99, auction: false)
-Item.create(e_info_id: 11, quantity: 25, reserve_price: 9, auction: false)
-Item.create(e_info_id: 12, quantity: 34, reserve_price: 64, auction: false)
-Item.create(e_info_id: 13, quantity: 40, reserve_price: 499, auction: false)
-Item.create(e_info_id: 14, quantity: 21, reserve_price: 49, auction: false)
-Item.create(e_info_id: 15, quantity: 80, reserve_price: 19, auction: false)
-Item.create(e_info_id: 16, quantity: 25, reserve_price: 5, auction: false)
-Item.create(e_info_id: 17, quantity: 13, reserve_price: 299, auction: false)
-Item.create(e_info_id: 18, quantity: 25, reserve_price: 19, auction: false)
-Item.create(e_info_id: 19, quantity: 13, reserve_price: 19, auction: false)
-Item.create(e_info_id: 20, quantity: 25, reserve_price: 14, auction: false)
-Item.create(e_info_id: 21, quantity: 33, reserve_price: 49, auction: false)
-Item.create(e_info_id: 22, quantity: 13, reserve_price: 19, auction: false)
-Item.create(e_info_id: 23, quantity: 25, reserve_price: 59, auction: false)
-Item.create(e_info_id: 24, quantity: 33, reserve_price: 29, auction: false)
-Item.create(e_info_id: 25, quantity: 10, reserve_price: 59, auction: false)
-Item.create(e_info_id: 26, quantity: 55, reserve_price: 39, auction: false)
-Item.create(e_info_id: 27, quantity: 23, reserve_price: 15, auction: false)
+Item.create(e_info_id: 1, quantity: 20, reserve_price: 799, auction: true) #1
+Item.create(e_info_id: 2, quantity: 25, reserve_price: 299, auction: true) #2
+Item.create(e_info_id: 3, quantity: 10, reserve_price: 999, auction: false) #3
+Item.create(e_info_id: 4, quantity: 100, reserve_price: 49, auction: false) #4
+Item.create(e_info_id: 5, quantity: 79, reserve_price: 59, auction: false) #5
+Item.create(e_info_id: 6, quantity: 400, reserve_price: 29, auction: false) #6
+Item.create(e_info_id: 7, quantity: 1, reserve_price: 99, auction: false) #7
+Item.create(e_info_id: 8, quantity: 25, reserve_price: 29, auction: false) #8
+Item.create(e_info_id: 9, quantity: 60, reserve_price: 79, auction: false) #9
+Item.create(e_info_id: 10, quantity: 50, reserve_price: 99, auction: false) #10
+Item.create(e_info_id: 11, quantity: 25, reserve_price: 9, auction: false) #11
+Item.create(e_info_id: 12, quantity: 34, reserve_price: 64, auction: false) #12
+Item.create(e_info_id: 13, quantity: 40, reserve_price: 499, auction: false) #13
+Item.create(e_info_id: 14, quantity: 21, reserve_price: 49, auction: false) #14
+Item.create(e_info_id: 15, quantity: 80, reserve_price: 19, auction: false) #15
+Item.create(e_info_id: 16, quantity: 25, reserve_price: 5, auction: false) #16
+Item.create(e_info_id: 17, quantity: 13, reserve_price: 299, auction: false) #17
+Item.create(e_info_id: 18, quantity: 25, reserve_price: 19, auction: false) #18
+Item.create(e_info_id: 19, quantity: 13, reserve_price: 19, auction: false) #19
+Item.create(e_info_id: 20, quantity: 25, reserve_price: 14, auction: false) #20
+Item.create(e_info_id: 21, quantity: 33, reserve_price: 49, auction: false) #21
+Item.create(e_info_id: 22, quantity: 13, reserve_price: 19, auction: false) #22
+Item.create(e_info_id: 23, quantity: 25, reserve_price: 59, auction: false) #23
+Item.create(e_info_id: 24, quantity: 33, reserve_price: 29, auction: false) #24
+Item.create(e_info_id: 25, quantity: 10, reserve_price: 59, auction: false) #25
+Item.create(e_info_id: 26, quantity: 55, reserve_price: 39, auction: false) #26
+Item.create(e_info_id: 27, quantity: 23, reserve_price: 15, auction: false) #etc
 Item.create(e_info_id: 28, quantity: 100, reserve_price: 12, auction: false)
 Item.create(e_info_id: 29, quantity: 46, reserve_price: 39, auction: false)
 Item.create(e_info_id: 30, quantity: 5, reserve_price: 219, auction: false)
@@ -109,6 +109,12 @@ Item.create(e_info_id: 47, quantity: 12, reserve_price: 64, auction: false)
 Item.create(e_info_id: 48, quantity: 37, reserve_price: 25, auction: false)
 Item.create(e_info_id: 49, quantity: 18, reserve_price: 289, auction: false)
 Item.create(e_info_id: 50, quantity: 18, reserve_price: 45, auction: false)
+
+BidInfo.create(item_id: 1, start_time: Time.zone.now, end_time: '2015-12-25 21:00'.to_datetime) #1
+BidInfo.create(item_id: 2, start_time: Time.zone.now, end_time: '2015-12-23 19:00'.to_datetime) #2
+
+AuctionProcess.create(bid_price: '10', bid_info_id: 1)
+AuctionProcess.create(bid_price: '15', bid_info_id: 2)
 
 # ECategories (NOT ALLOWED TO DIRECT LINK 1..7 - They Are Main Categories)
 ECategory.create(name: 'root', parent_cat_id: 0) #1

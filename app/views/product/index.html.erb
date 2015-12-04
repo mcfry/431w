@@ -95,18 +95,57 @@
                                 <div class="product-inner">
                                     <h2 class="product-name"><%= @einfo.title %></h2>
                                     <% Item.where(:e_info_id => @einfo.id).limit(1).each do |item| %>
-                                        <div class="product-inner-price">
-                                            <ins>$<%= item.reserve_price %></ins> <del>$<%= (item.reserve_price.to_i + 10) %></del><br>
-                                            <ins>Quanitity left:</ins> <%= item.quantity %>
-                                        </div> 
-                                    <% end %>  
-                                    
-                                    <form action="" class="cart">
+                                        <% if item.auction != true %>
+                                            <div class="product-inner-price">
+                                                <ins>$<%= item.reserve_price %></ins> <del>$<%= (item.reserve_price.to_i + 10) %></del><br>
+                                                <ins>Quanitity left:</ins> <%= item.quantity %>
+                                            </div> 
+                                        
+                                            <% if item.quantity > 0 %>
+                                                <%= form_tag product_delete_path(params[:id]), method: 'get', :class => 'navbar-form' do %>
+                                                        <div class="quanitiy">
+                                                            <%= number_field_tag 'quantity', 1, :class => 'input-text qty text' %>
+                                                        </div>
+                                                        <br>
+                                                        <%= submit_tag "Buy Item", :class => 'btn btn-default' %>
+                                                    </div>
+                                                <% end %>
+                                                <br>
+                                            <% end %>
+                                        <% else %>
+                                            <% BidInfo.where(:item_id => item.id).limit(1).each do |bid| %>
+                                                <% AuctionProcess.where(:bid_info_id => bid.id).limit(1).each do |ap| %>
+                                                    <div class="product-inner-price">
+                                                        <ins>Auction Price</ins> $<%= ap.bid_price %><br>
+                                                        <ins>Ending Date</ins> <%= bid.end_time.strftime("%m/%d/%y: %I:%M %p") %>
+                                                    </div>
+
+                                                    <% if Time.now.to_i < bid.end_time.to_i %>
+                                                        <%= form_tag product_bid_path(params[:id]), method: 'get', :class => 'navbar-form' do %>
+                                                            <div class='input-group'>
+                                                                <div class="quanitiy">
+                                                                    $ <%= text_field_tag 'bid', 1, :class => 'input-text qty text' %>
+                                                                </div>
+                                                                <%= hidden_field_tag :hid, item.id %>
+                                                                <div class='input-group-btn'>
+                                                                    <%= submit_tag "Place Bid", :class => 'btn btn-default' %>
+                                                                </div>
+                                                            </div>
+                                                        <% end %>
+                                                        <br>
+                                                    <% end %>
+
+                                                <% end %>
+                                            <% end %>
+                                        <% end %>
+                                    <% end %> 
+
+         <!--                            <form action="" method='' class="cart">
                                         <div class="quantity">
                                             <input type="number" size="4" class="input-text qty text" title="Qty" value="1" name="quantity" min="1" step="1">
                                         </div>
-                                        <button class="add_to_cart_button" type="submit">Add to cart</button>
-                                    </form>   
+                                        <button class="add_to_cart_button" type="submit">Buy item</button>
+                                    </form>    -->
                                     
                                     <div class="product-inner-category">
                                         <p>Category: <a href=""><%= @cat_array.last %></a><br>
