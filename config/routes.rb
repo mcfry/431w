@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'registered_users/new'
+
   root  'home#index'
   
   get 'product/index/:id' => 'product#index', as: 'product'
@@ -11,6 +13,8 @@ Rails.application.routes.draw do
   get 'cart/index' => 'cart#index', as: 'cart'
 
   get 'home/index' => 'home#index', as: 'home'
+
+  resources :registered_users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
