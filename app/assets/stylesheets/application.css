@@ -5,3 +5,11 @@
  *= require_self
  *= require_tree .
 */
+
+.flash-border {
+	border-style: solid;
+    border-top: thin solid #ff9999;
+    border-bottom: thin solid #ff9999;
+    border-left: 0px;
+    border-right: 0px;
+}

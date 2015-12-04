@@ -54,11 +54,11 @@
                     </div>
                 </div>
                 
-                <div class="col-sm-6">
+                <!-- <div class="col-sm-6">
                     <div class="shopping-item">
                         <a href="cart/index">Cart - <span class="cart-amunt">$800</span> <i class="fa fa-shopping-cart"></i> <span class="product-count">5</span></a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </div> <!-- End site branding area -->
@@ -76,11 +76,11 @@
                 </div> 
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav" id="main-menu">
-                        <li class="active"><%= link_to 'Home', root_url, 'data-no-turbolink'.to_sym => true %></li>
-                        <li><%= link_to 'Browse', shop_url, 'data-no-turbolink'.to_sym => true %></li>
-                        <li><%= link_to 'Product', product_url(:id => 1), 'data-no-turbolink'.to_sym => true %></li>
-                        <li><%= link_to 'Cart', cart_url, 'data-no-turbolink'.to_sym => true %></li>
-                        <li><%= link_to 'Checkout', checkout_url, 'data-no-turbolink'.to_sym => true %></li>
+                        <li class="<%= 'active' if current_page?(root_url) %>"><%= link_to 'Home', root_url, 'data-no-turbolink'.to_sym => true %></li>
+                        <li class="<%= 'active' if current_page?(shop_url) %>"><%= link_to 'Browse', shop_url, 'data-no-turbolink'.to_sym => true %></li>
+                        <li class="<%= 'active' if request.original_url =~ /#{Regexp.quote('/product/index/')}\d/ %> %>"><%= link_to 'Product', product_url(:id => 1), 'data-no-turbolink'.to_sym => true %></li>
+                        <li class="<%= 'active' if current_page?(cart_url) %>"><%= link_to 'Cart', cart_url, 'data-no-turbolink'.to_sym => true %></li>
+                        <li class="<%= 'active' if current_page?(checkout_url) %>"><%= link_to 'Checkout', checkout_url, 'data-no-turbolink'.to_sym => true %></li>
                     </ul>
 
                     <div class="col-sm-3 col-md-3 pull-right">
