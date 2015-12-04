@@ -25,9 +25,15 @@
                                 <div class="product-upper">
                                     <%= image_tag(ei.image_name, :alt => "") %>
                                 </div>
-                                <h2><%= link_to ei.title, product_url(:id => ei.id), 'data-no-turbolink'.to_sym => true %></h2>
+                                <h2><%= link_to ei.title, product_url(:id => ei.id), 'data-no-turbolink'.to_sym => true %>
 
-                                <% Item.where(:e_info_id => ei.id).limit(1).each do |item| %>
+                                <% Item.where(:e_info_id => ei.id).limit(1).each do |item| %> 
+
+                                    <% if item.auction == true %>
+                                        &nbsp;(Auction Item)
+                                    <% end %>
+                                    </h2>
+                                    
                                     <div class="product-carousel-price">
                                         <ins>$<%= item.reserve_price %></ins> <del>$<%= (item.reserve_price.to_i + 10) %></del>&nbsp;&nbsp;
                                         <%# so messy %>
