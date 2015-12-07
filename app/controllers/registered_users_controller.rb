@@ -9,14 +9,13 @@ class RegisteredUsersController < ApplicationController
 
   def create
  	@user = RegisteredUser.new(user_params)
-  
     if params[:registered_user][:password] != params[:registered_user][:password_confirmation]
         flash[:danger] = 'Passwords don\'t match'
         render 'new'
     else
     	if @user.save
-    		flash[:success] = "Welcome to HelloWorld!, login to continue"
-    		redirect_to @user
+        flash[:success] = "Welcome to HelloWorld!, login to continue"
+    		redirect_to root_url
     	else 
         
     		  flash[:danger] = 'Invalid username'

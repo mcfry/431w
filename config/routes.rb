@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'sellers/new'
+
+  get 'customers/new'
+
   get 'login' => 'sessions#new'
 
   post 'login' => 'sessions#create'
@@ -20,7 +24,7 @@ Rails.application.routes.draw do
 
   get 'home/index' => 'home#index', as: 'home'
 
-  get 'user' => 'registered_users'
+  get 'registered_users/show/:id' => 'registered_users#show', as: 'user'
 
   get 'search' => 'search#index', as: 'search'
 
@@ -28,6 +32,8 @@ Rails.application.routes.draw do
   get 'product/bid/:id' => 'product#bid', as: 'product_bid'
 
   resources :registered_users
+  resources :customers
+  resources :sellers
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

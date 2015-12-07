@@ -1,0 +1,32 @@
+<%= content_for :body  do %>
+	<div class="container">
+		<h1>Customer Info</h1>
+		<div class="row">
+	  		<div class="col-md-6 col-md-offset-3">
+		    	<%= form_for(@seller) do |f| %>
+		    		<%= f.label :email %>
+		    		<br/>
+		     		<%= f.email_field :email %>
+		     		<br/>
+			    	<%= f.label :address %>
+			    	<br/>
+		    		<%= f.text_field :address %>
+		    		<br/>
+		    		<%= f.label :company_name, "Company name" %>
+		    		<br/>
+	      			<%= f.text_field :company_name %>
+	      			<br/>
+		    		<%= f.label :phone_number, "Phone number" %>
+		    		<br/>
+	      			<%= f.text_field :phone_number %>
+	      			<br/>
+	      			<%= f.label :bank_account, "bank_account" %>
+		    		<br/>
+	      			<%= f.text_field :bank_account %>
+	      			<br/>
+		    		<%= f.submit "Save info", class: "btn btn-primary" %>
+		    	<% end %>
+	  		</div>
+		</div>
+	</div>
+<% end %>
