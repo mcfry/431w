@@ -39,7 +39,7 @@ class ProductController < ApplicationController
         Order.create(:bank => customer.bank_account, credit: '999xxxxxxxxxxxxx', address: customer.address, item_id: params[:id], registered_user_id: current_user.id)
       end
     else
-      flash[:danger] = 'You have not created buyer info for your account yet. Visit the My Account page to do so.'
+      flash.now[:danger] = 'You have not created buyer info for your account yet. Visit the My Account page to do so.'
       return
     end
 
