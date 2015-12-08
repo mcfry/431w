@@ -113,7 +113,7 @@ Item.create(e_info_id: 50, quantity: 18, reserve_price: 45, auction: false)
 BidInfo.create(item_id: 1, start_time: Time.zone.now, end_time: '2015-12-25 21:00'.to_datetime) #1
 BidInfo.create(item_id: 2, start_time: Time.zone.now, end_time: '2015-12-23 19:00'.to_datetime) #2
 
-AuctionProcess.create(bid_price: '10', bid_info_id: 1)
+AuctionProcess.create(bid_price: '10', bid_info_id: 1) #default have no user attached
 AuctionProcess.create(bid_price: '15', bid_info_id: 2)
 
 # ECategories (NOT ALLOWED TO DIRECT LINK 1..7 - They Are Main Categories)

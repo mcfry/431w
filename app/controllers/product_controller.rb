@@ -12,11 +12,18 @@ class ProductController < ApplicationController
   	@cat_array = Array.new
   	make_cat_array(@einfo.e_category_id)
 
+    @product_array = Array.new
+    length = EInfo.all().length
+
+    (16).times do
+      push_rand(length)
+    end
+
   end
 
   def delete
     if !logged_in?
-      flash[:danger] = 'Not logged in!'
+      flash.now[:danger] = 'Not logged in!'
 
       redirect_to product_url(:id => params[:id])
       return
@@ -39,35 +46,36 @@ class ProductController < ApplicationController
       return
     end
 
-    redirect_to product_url(:id => params[:id])
+    redirect_to cart_url
     return
   end
 
   def bid
     if !logged_in?
-      flash[:danger] = 'Not logged in!'
+      flash.now[:danger] = 'Not logged in!'
 
       redirect_to product_url(:id => params[:id])
       return
     end
 
     bi = BidInfo.where(:item_id => params[:hid]).limit(1)
-    bi.each { |ei|
-      bi = ei
+    bi.each { |yy|
+      bi = yy
     }
 
-    ai = AuctionProcess.where(:bid_info_id => bi.id).limit(1)
-    ai.each { |ei|
-      ai = ei
+    ai = AuctionProcess.where(:bid_info_id => bi.id).order('bid_price DESC').limit(1)
+    ai.each { |xx|
+      ai = xx
     }
 
     if params[:bid].to_i > ai.bid_price.to_i
       ai.update(bid_price: params[:bid], bid_info_id: bi.id)
+      AuctionProcess.create(bid_price: params[:bid].to_s, bid_info_id: bi.id, registered_user_id: current_user.id)
     else
       flash[:danger] = 'Bid is not greater than current going price!'
     end
 
-    redirect_to product_url(:id => params[:id])
+    redirect_to cart_url
     return
   end
 
@@ -80,6 +88,17 @@ class ProductController < ApplicationController
   			break
   		end
   	end
+  end
+
+  def push_rand(length)
+    num = 1 + rand(length)
+
+    if (@product_array.include?(num))
+      push_rand(length)
+    else
+      @product_array.push(num)
+    end
+
   end
 
 end

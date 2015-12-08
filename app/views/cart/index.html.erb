@@ -16,103 +16,96 @@
     <div class="single-product-area">
         <div class="zigzag-bottom"></div>
         <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <!-- <div class="single-sidebar">
-                        <h2 class="sidebar-title">Search Products</h2>
-                        <form action="#">
-                            <input type="text" placeholder="Search products...">
-                            <input type="submit" value="Search">
-                        </form>
-                    </div> -->
-                    
-                    <div class="single-sidebar">
-                        <h2 class="sidebar-title">Products</h2>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="single-product.html">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>                             
-                        </div>
-                    </div>
-                    
-                    <div class="single-sidebar">
-                        <h2 class="sidebar-title">Recent Posts</h2>
-                        <ul>
-                            <li><a href="#">Sony Smart TV - 2015</a></li>
-                            <li><a href="#">Sony Smart TV - 2015</a></li>
-                            <li><a href="#">Sony Smart TV - 2015</a></li>
-                            <li><a href="#">Sony Smart TV - 2015</a></li>
-                            <li><a href="#">Sony Smart TV - 2015</a></li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="col-md-8">
+            <div class="row">         
+                <div class="col-md-12">
 
-                <% if !current_user.nil? %>
-                    <% Order.where(registered_user_id: current_user.id).each do |order| %>
-                        <% Item.where(id: order.item_id).limit(1).each do |item| %>
-                            <% EInfo.where(id: item.e_info_id).limit(1).each do |eitem| %>
-                                <table cellspacing="0" class="shop_table cart">
-                                    <thead>
-                                        <tr>
-                                            <th class="product-name">Bank</th>
-                                            <th class="product-price">Credit</th>
-                                            <th class="product-quantity">Address</th>
-                                            <th class="product-subtotal">Name</th>
-                                            <th class="product-subtotal">Price</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr class="cart_item">
-                                            <td class="product-name">
-                                                <a href="single-product.html"><%= order.bank %></a> 
-                                            </td>
+                <% if current_user.nil? %>
+                    <br><br><br>
+                    <h2 class="sidebar-title text-center">You are not logged in</h2>
+                    <br><br><br>
+                <% else %>
+                    <% if Order.where(registered_user_id: current_user.id).blank? %>
+                        <br><br><br>
+                        <h2 class="sidebar-title text-center">You have not placed any orders yet</h2>
+                        <br><br><br>
+                    <% else %>
+                        <h2 class="sidebar-title text-center">Orders For <%= current_user.username %></h2>
+                        <% Order.where(registered_user_id: current_user.id).each do |order| %>
+                            <% Item.where(id: order.item_id).limit(1).each do |item| %>
+                                <% EInfo.where(id: item.e_info_id).limit(1).each do |eitem| %>
+                                    <table cellspacing="0" class="shop_table cart">
+                                        <thead>
+                                            <tr>
+                                                <th class="product-name">Bank</th>
+                                                <th class="product-price">Credit</th>
+                                                <th class="product-quantity">Address</th>
+                                                <th class="product-subtotal">Name</th>
+                                                <th class="product-subtotal">Price</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="cart_item">
+                                                <td class="product-name">
+                                                    <a href="single-product.html"><%= order.bank %></a> 
+                                                </td>
 
-                                            <td class="product-price">
-                                                <span class="amount"><%= order.credit %></span> 
-                                            </td>
+                                                <td class="product-price">
+                                                    <span class="amount"><%= order.credit %></span> 
+                                                </td>
 
-                                            <td class="product-name">
-                                                <a href="single-product.html"><%= order.address %></a> 
-                                            </td>
+                                                <td class="product-name">
+                                                    <a href="single-product.html"><%= order.address %></a> 
+                                                </td>
 
-                                            <td class="product-name">
-                                                <a href="single-product.html"><%= eitem.title %></a> 
-                                            </td>
+                                                <td class="product-name">
+                                                    <a href="single-product.html"><%= eitem.title %></a> 
+                                                </td>
 
-                                            <td class="product-name">
-                                                <a href="single-product.html"><%= item.reserve_price %></a> 
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                                <td class="product-name">
+                                                    <a href="single-product.html"><%= item.reserve_price %></a> 
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                <% end %>
                             <% end %>
                         <% end %>
                     <% end %>
+
+                    <% if AuctionProcess.where(registered_user_id: current_user.id).blank? %>
+                        <br><br><br>
+                        <h2 class="sidebar-title text-center">You have not placed any bids yet</h2>
+                        <br><br><br>
+                    <% else %>
+                        <h2 class="sidebar-title text-center">Bids For <%= current_user.username %></h2>
+                        <% AuctionProcess.where(registered_user_id: current_user.id).each do |ap| %>
+                            <% BidInfo.where(id: ap.bid_info_id).each do |bid| %>
+                                <% Item.where(id: bid.item_id).limit(1).each do |item| %>
+                                    <% EInfo.where(id: item.e_info_id).limit(1).each do |ei| %>
+                                        <table cellspacing="0" class="shop_table cart">
+                                            <thead>
+                                                <tr>
+                                                    <th class="product-subtotal">Name</th>
+                                                    <th class="product-subtotal">Bid</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr class="cart_item">
+                                                    <td class="product-name">
+                                                        <a href="single-product.html"><%= ei.title %></a> 
+                                                    </td>
+
+                                                    <td class="product-name">
+                                                        <a href="single-product.html"><%= ap.bid_price %></a> 
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    <% end %>
+                                <% end %>
+                            <% end %>
+                        <% end %>
+                    <% end %>     
                 <% end %>
 
                     <!-- <div class="product-content-right">

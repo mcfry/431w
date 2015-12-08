@@ -5,11 +5,11 @@ class SessionsController < ApplicationController
   def create
   	user = RegisteredUser.find_by(username: params[:session][:username])
   	if user && user.password == params[:session][:password]
-  		flash[:success] = "Welcome back " + user.username + "!"
+  		flash.now[:success] = "Welcome back " + user.username + "!"
   		log_in user
   		redirect_to user
   	else
-  		flash[:danger] = 'Invalid username/password combination'
+  		flash.now[:danger] = 'Invalid username/password combination'
   		render 'new'
   	end
   end

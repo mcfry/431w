@@ -19,13 +19,13 @@ ActiveRecord::Schema.define(version: 20151027193600) do
   create_table "auction_processes", force: :cascade do |t|
     t.string   "bid_price"
     t.integer  "bid_info_id"
-    t.integer  "customer_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "registered_user_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   add_index "auction_processes", ["bid_info_id"], name: "index_auction_processes_on_bid_info_id", using: :btree
-  add_index "auction_processes", ["customer_id"], name: "index_auction_processes_on_customer_id", using: :btree
+  add_index "auction_processes", ["registered_user_id"], name: "index_auction_processes_on_registered_user_id", using: :btree
 
   create_table "bid_infos", force: :cascade do |t|
     t.datetime "start_time"

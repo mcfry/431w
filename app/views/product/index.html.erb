@@ -16,56 +16,17 @@
         <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-4">                 
                     <div class="single-sidebar">
-                        <h2 class="sidebar-title">Search Products</h2>
-                        <form action="">
-                            <input type="text" placeholder="Search products...">
-                            <input type="submit" value="Search">
-                        </form>
-                    </div>
-                    
-                    <div class="single-sidebar">
-                        <h2 class="sidebar-title">Products</h2>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>                             
-                        </div>
-                        <div class="thubmnail-recent">
-                            <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
-                            <h2><a href="">Sony Smart TV - 2015</a></h2>
-                            <div class="product-sidebar-price">
-                                <ins>$700.00</ins> <del>$800.00</del>
-                            </div>                             
-                        </div>
-                    </div>
-                    
-                    <div class="single-sidebar">
-                        <h2 class="sidebar-title">Recent Posts</h2>
-                        <ul>
-                            <li><a href="">Sony Smart TV - 2015</a></li>
-                            <li><a href="">Sony Smart TV - 2015</a></li>
-                            <li><a href="">Sony Smart TV - 2015</a></li>
-                            <li><a href="">Sony Smart TV - 2015</a></li>
-                            <li><a href="">Sony Smart TV - 2015</a></li>
-                        </ul>
+                        <h2 class="sidebar-title">Other Products</h2>
+                        <% @product_array.first(8).each do |product| %>
+                            <% EInfo.where(id: product).each do |ei| %>
+                                <div class="thubmnail-recent">
+                                    <img src="img/product-thumb-1.jpg" class="recent-thumb" alt="">
+                                    <h2><%= link_to ei.title, product_url(id: product), 'data-no-turbolink'.to_sym => true %></h2>                             
+                                </div>
+                            <% end %>
+                        <% end %>
                     </div>
                 </div>
                 
@@ -101,38 +62,51 @@
                                                 <ins>Quanitity left:</ins> <%= item.quantity %>
                                             </div> 
                                         
-                                            <% if item.quantity > 0 %>
-                                                <%= form_tag product_delete_path(params[:id]), method: 'get', :class => 'navbar-form' do %>
-                                                        <div class="quanitiy">
-                                                            <%= number_field_tag 'quantity', 1, :class => 'input-text qty text' %>
+                                            <% if current_user.nil? %>
+                                                <div class="product-inner-price">
+                                                    <ins>You are not logged in. You must log in to buy items.</ins>
+                                                </div>
+                                            <% else %>
+                                                <% if item.quantity > 0 %>
+                                                    <%= form_tag product_delete_path(params[:id]), method: 'get', :class => 'navbar-form' do %>
+                                                            <div class="quanitiy">
+                                                                <%= number_field_tag 'quantity', 1, :class => 'input-text qty text' %>
+                                                            </div>
+                                                            <br>
+                                                            <%= submit_tag "Buy Item", :class => 'btn btn-default', data: { confirm: 'Are you sure you want to play this order?'} %>
                                                         </div>
-                                                        <br>
-                                                        <%= submit_tag "Buy Item", :class => 'btn btn-default' %>
-                                                    </div>
+                                                    <% end %>
+                                                    <br>
                                                 <% end %>
-                                                <br>
                                             <% end %>
                                         <% else %>
                                             <% BidInfo.where(:item_id => item.id).limit(1).each do |bid| %>
-                                                <% AuctionProcess.where(:bid_info_id => bid.id).limit(1).each do |ap| %>
+                                                <% AuctionProcess.where(:bid_info_id => bid.id).order('bid_price DESC').limit(1).each do |ap| %>
                                                     <div class="product-inner-price">
                                                         <ins>Auction Price</ins> $<%= ap.bid_price %><br>
                                                         <ins>Ending Date</ins> <%= bid.end_time.strftime("%m/%d/%y: %I:%M %p") %>
                                                     </div>
 
-                                                    <% if Time.now.to_i < bid.end_time.to_i %>
-                                                        <%= form_tag product_bid_path(params[:id]), method: 'get', :class => 'navbar-form' do %>
-                                                            <div class='input-group'>
-                                                                <div class="quanitiy">
-                                                                    $ <%= text_field_tag 'bid', 1, :class => 'input-text qty text' %>
+
+                                                    <% if current_user.nil? %>
+                                                        <div class="product-inner-price">
+                                                            <ins>You are not logged in. You must log in to place bids.</ins>
+                                                        </div>
+                                                    <% else %>
+                                                        <% if Time.now.to_i < bid.end_time.to_i %>
+                                                            <%= form_tag product_bid_path(params[:id]), method: 'get', :class => 'navbar-form' do %>
+                                                                <div class='input-group'>
+                                                                    <div class="quanitiy">
+                                                                        $ <%= text_field_tag 'bid', 1, :class => 'input-text qty text' %>
+                                                                    </div>
+                                                                    <%= hidden_field_tag :hid, item.id %>
+                                                                    <div class='input-group-btn'>
+                                                                        <%= submit_tag "Place Bid", :class => 'btn btn-default', data: { confirm: 'Are you sure you want to play this bid?' } %>
+                                                                    </div>
                                                                 </div>
-                                                                <%= hidden_field_tag :hid, item.id %>
-                                                                <div class='input-group-btn'>
-                                                                    <%= submit_tag "Place Bid", :class => 'btn btn-default' %>
-                                                                </div>
-                                                            </div>
+                                                            <% end %>
+                                                            <br>
                                                         <% end %>
-                                                        <br>
                                                     <% end %>
 
                                                 <% end %>
