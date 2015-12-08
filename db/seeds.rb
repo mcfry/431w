@@ -61,24 +61,24 @@ EInfo.create(e_category_id: 11, title: 'LG Music Flow H3', description: 'Hey it 
 # Items
 Item.create(e_info_id: 1, quantity: 20, reserve_price: 799, auction: true) #1
 Item.create(e_info_id: 2, quantity: 25, reserve_price: 299, auction: true) #2
-Item.create(e_info_id: 3, quantity: 10, reserve_price: 999, auction: false) #3
-Item.create(e_info_id: 4, quantity: 100, reserve_price: 49, auction: false) #4
-Item.create(e_info_id: 5, quantity: 79, reserve_price: 59, auction: false) #5
-Item.create(e_info_id: 6, quantity: 400, reserve_price: 29, auction: false) #6
-Item.create(e_info_id: 7, quantity: 1, reserve_price: 99, auction: false) #7
-Item.create(e_info_id: 8, quantity: 25, reserve_price: 29, auction: false) #8
-Item.create(e_info_id: 9, quantity: 60, reserve_price: 79, auction: false) #9
-Item.create(e_info_id: 10, quantity: 50, reserve_price: 99, auction: false) #10
-Item.create(e_info_id: 11, quantity: 25, reserve_price: 9, auction: false) #11
-Item.create(e_info_id: 12, quantity: 34, reserve_price: 64, auction: false) #12
-Item.create(e_info_id: 13, quantity: 40, reserve_price: 499, auction: false) #13
-Item.create(e_info_id: 14, quantity: 21, reserve_price: 49, auction: false) #14
-Item.create(e_info_id: 15, quantity: 80, reserve_price: 19, auction: false) #15
-Item.create(e_info_id: 16, quantity: 25, reserve_price: 5, auction: false) #16
-Item.create(e_info_id: 17, quantity: 13, reserve_price: 299, auction: false) #17
-Item.create(e_info_id: 18, quantity: 25, reserve_price: 19, auction: false) #18
-Item.create(e_info_id: 19, quantity: 13, reserve_price: 19, auction: false) #19
-Item.create(e_info_id: 20, quantity: 25, reserve_price: 14, auction: false) #20
+Item.create(e_info_id: 3, quantity: 10, reserve_price: 999, auction: true) #3
+Item.create(e_info_id: 4, quantity: 100, reserve_price: 49, auction: true) #4
+Item.create(e_info_id: 5, quantity: 79, reserve_price: 59, auction: true) #5
+Item.create(e_info_id: 6, quantity: 400, reserve_price: 29, auction: true) #6
+Item.create(e_info_id: 7, quantity: 1, reserve_price: 99, auction: true) #7
+Item.create(e_info_id: 8, quantity: 25, reserve_price: 29, auction: true) #8
+Item.create(e_info_id: 9, quantity: 60, reserve_price: 79, auction: true) #9
+Item.create(e_info_id: 10, quantity: 50, reserve_price: 99, auction: true) #10
+Item.create(e_info_id: 11, quantity: 25, reserve_price: 9, auction: true) #11
+Item.create(e_info_id: 12, quantity: 34, reserve_price: 64, auction: true) #12
+Item.create(e_info_id: 13, quantity: 40, reserve_price: 499, auction: true) #13
+Item.create(e_info_id: 14, quantity: 21, reserve_price: 49, auction: true) #14
+Item.create(e_info_id: 15, quantity: 80, reserve_price: 19, auction: true) #15
+Item.create(e_info_id: 16, quantity: 25, reserve_price: 5, auction: true) #16
+Item.create(e_info_id: 17, quantity: 13, reserve_price: 299, auction: true) #17
+Item.create(e_info_id: 18, quantity: 25, reserve_price: 19, auction: true) #18
+Item.create(e_info_id: 19, quantity: 13, reserve_price: 19, auction: true) #19
+Item.create(e_info_id: 20, quantity: 25, reserve_price: 14, auction: true) #20
 Item.create(e_info_id: 21, quantity: 33, reserve_price: 49, auction: false) #21
 Item.create(e_info_id: 22, quantity: 13, reserve_price: 19, auction: false) #22
 Item.create(e_info_id: 23, quantity: 25, reserve_price: 59, auction: false) #23
@@ -112,9 +112,46 @@ Item.create(e_info_id: 50, quantity: 18, reserve_price: 45, auction: false)
 
 BidInfo.create(item_id: 1, start_time: Time.zone.now, end_time: '2015-12-25 21:00'.to_datetime) #1
 BidInfo.create(item_id: 2, start_time: Time.zone.now, end_time: '2015-12-23 19:00'.to_datetime) #2
+BidInfo.create(item_id: 3, start_time: Time.zone.now, end_time: '2015-12-20 17:00'.to_datetime) #3
+BidInfo.create(item_id: 4, start_time: Time.zone.now, end_time: '2015-12-23 10:00'.to_datetime) #3
+BidInfo.create(item_id: 5, start_time: Time.zone.now, end_time: '2015-12-10 1:00'.to_datetime) #3
+BidInfo.create(item_id: 6, start_time: Time.zone.now, end_time: '2016-1-1 00:00'.to_datetime) #3
+BidInfo.create(item_id: 7, start_time: Time.zone.now, end_time: '2015-12-31 23:59'.to_datetime) #3
+BidInfo.create(item_id: 8, start_time: Time.zone.now, end_time: '2015-12-23 19:00'.to_datetime) #3
+BidInfo.create(item_id: 9, start_time: Time.zone.now, end_time: '2015-12-23 19:00'.to_datetime) #3
+BidInfo.create(item_id: 10, start_time: Time.zone.now, end_time: '2015-12-23 19:00'.to_datetime) #3
+BidInfo.create(item_id: 11, start_time: Time.zone.now, end_time: '2015-12-23 19:00'.to_datetime) #3
+BidInfo.create(item_id: 12, start_time: Time.zone.now, end_time: '2015-12-20 20:00'.to_datetime) #2
+BidInfo.create(item_id: 13, start_time: Time.zone.now, end_time: '2015-12-23 19:00'.to_datetime) #3
+BidInfo.create(item_id: 14, start_time: Time.zone.now, end_time: '2015-12-29 9:00'.to_datetime) #3
+BidInfo.create(item_id: 15, start_time: Time.zone.now, end_time: '2015-12-24 19:00'.to_datetime) #3
+BidInfo.create(item_id: 16, start_time: Time.zone.now, end_time: '2015-12-23 19:00'.to_datetime) #3
+BidInfo.create(item_id: 17, start_time: Time.zone.now, end_time: '2015-12-25 18:00'.to_datetime) #3
+BidInfo.create(item_id: 18, start_time: Time.zone.now, end_time: '2015-12-23 10:00'.to_datetime) #3
+BidInfo.create(item_id: 19, start_time: Time.zone.now, end_time: '2015-12-25 11:00'.to_datetime) #3
+BidInfo.create(item_id: 20, start_time: Time.zone.now, end_time: '2015-12-23 19:00'.to_datetime) #3
+
 
 AuctionProcess.create(bid_price: '10', bid_info_id: 1) #default have no user attached
 AuctionProcess.create(bid_price: '15', bid_info_id: 2)
+AuctionProcess.create(bid_price: '15', bid_info_id: 3)
+AuctionProcess.create(bid_price: '5', bid_info_id: 4)
+AuctionProcess.create(bid_price: '25', bid_info_id: 5)
+AuctionProcess.create(bid_price: '15', bid_info_id: 6)
+AuctionProcess.create(bid_price: '5', bid_info_id: 7)
+AuctionProcess.create(bid_price: '10', bid_info_id: 8)
+AuctionProcess.create(bid_price: '20', bid_info_id: 9)
+AuctionProcess.create(bid_price: '5', bid_info_id: 10)
+AuctionProcess.create(bid_price: '5', bid_info_id: 11)
+AuctionProcess.create(bid_price: '15', bid_info_id: 12)
+AuctionProcess.create(bid_price: '15', bid_info_id: 13)
+AuctionProcess.create(bid_price: '5', bid_info_id: 14)
+AuctionProcess.create(bid_price: '25', bid_info_id: 15)
+AuctionProcess.create(bid_price: '15', bid_info_id: 16)
+AuctionProcess.create(bid_price: '5', bid_info_id: 17)
+AuctionProcess.create(bid_price: '10', bid_info_id: 18)
+AuctionProcess.create(bid_price: '20', bid_info_id: 19)
+AuctionProcess.create(bid_price: '5', bid_info_id: 20)
 
 # ECategories (NOT ALLOWED TO DIRECT LINK 1..7 - They Are Main Categories)
 ECategory.create(name: 'root', parent_cat_id: 0) #1

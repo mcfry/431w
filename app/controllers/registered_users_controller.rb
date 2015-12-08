@@ -8,17 +8,23 @@ class RegisteredUsersController < ApplicationController
   end
 
   def create
- 	@user = RegisteredUser.new(user_params)
+ 	  @user = RegisteredUser.new(user_params)
 
-  	if @user.save
-  		flash.now[:success] = "Welcome to HelloWorld!, login to continue"
-  		redirect_to @user
-  	else
-  		flash.now[:danger] = 'Invalid username'
-  		render 'new'
+    if params[:registered_user][:password] != params[:registered_user][:password_confirmation]
+        flash[:danger] = 'Passwords don\'t match'
+        render 'new'
+    else
+    	if @user.save
+        flash[:success] = "Welcome to HelloWorld!, login to continue"
+    		redirect_to root_url
+    	else 
+        
+    		  flash[:danger] = 'Invalid username'
+    		  render 'new'
+      end
   	end
-
   end
+  
   private
 
     def user_params

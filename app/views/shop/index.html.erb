@@ -17,7 +17,6 @@
         <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
-
                 <% @shop_array.each do |random| %>
                     <% EInfo.where(:id => random).each do |ei| %>
                         <div class="col-md-3 col-sm-6">
@@ -25,9 +24,15 @@
                                 <div class="product-upper">
                                     <%= image_tag(ei.image_name, :alt => "") %>
                                 </div>
-                                <h2><%= link_to ei.title, product_url(:id => ei.id), 'data-no-turbolink'.to_sym => true %></h2>
 
-                                <% Item.where(:e_info_id => ei.id).limit(1).each do |item| %>
+                                <% Item.where(:e_info_id => ei.id).limit(1).each do |item| %> 
+
+                                    <h2><%= link_to ei.title, product_url(:id => ei.id), 'data-no-turbolink'.to_sym => true %>
+                                    <% if item.auction == true %>
+                                        &nbsp;(Auction Item)
+                                    <% end %>
+                                    </h2>
+                                    
                                     <div class="product-carousel-price">
                                         <ins>$<%= item.reserve_price %></ins> <del>$<%= (item.reserve_price.to_i + 10) %></del>&nbsp;&nbsp;
                                         <%# so messy %>
@@ -39,10 +44,7 @@
                                         <% end %>
                                     </div>
                                 <% end %>
-                                
-                                <!-- <div class="product-option-shop">
-                                    <a class="add_to_cart_button" data-quantity="1" data-product_sku="" data-product_id="70" rel="nofollow" href="/canvas/shop/?add-to-cart=70">Add to cart</a>
-                                </div>     -->                   
+                                                
                             </div>
                         </div>
                     <% end %>

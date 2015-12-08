@@ -1,7 +1,37 @@
 <%= content_for :body  do %>
 	<div class="container">
-		<h1>
-			<%= @user.username %>
+		<br><br><h1>
+			User: <%= @user.username %>
 		</h1>
+		
+		<% @customer = Customer.find_by(registered_user_id: current_user.id) 
+		@seller = Seller.find_by(registered_user_id: current_user.id)
+		%>
+		<% if !@customer || !@seller %>
+			<br><br>
+			<h3>Manage Account Details</h3>
+			<% if !@customer %>
+				<a class: "btn" href = <%= customers_new_url %>>Customer</a>
+				&nbsp;
+			<% end %>
+			<% if !@seller %>
+				<a class: "btn" href = <%= sellers_new_url %>>Buyer</a>
+			<% end %>
+		<% end %>
+		<br><br><br>
+		<% if @customer %>
+			<h2> Customer info</h2>
+			<p>email: <%= @customer.email %></p>
+			<p>Shipping address: <%= @customer.shipping_address %></p>
+			<p>Phone: <%= @customer.phone_number %></p>
+		<% end %>
+		<% if @seller %>
+			<h2> Seller info</h2>
+			<p>email: <%= @seller.email %></p>
+			<p>Company: <%= @seller.company_name %></p>
+			<p>Address: <%= @seller.address %></p>
+			<p>Phone: <%= @seller.phone_number %></p>
+			<p>Bank account: <%= @seller.bank_account %></p>
+		<% end %><br>
 	</div>
 <% end %>

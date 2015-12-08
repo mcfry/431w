@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   	if user && user.password == params[:session][:password]
   		flash.now[:success] = "Welcome back " + user.username + "!"
   		log_in user
-  		redirect_to user
+  		redirect_to root_url
   	else
   		flash.now[:danger] = 'Invalid username/password combination'
   		render 'new'

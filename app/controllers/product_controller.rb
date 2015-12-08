@@ -29,8 +29,18 @@ class ProductController < ApplicationController
       return
     end
     
-    params[:quantity].to_i.times do |i|
-      Order.create(:bank => 'Nat Penn', credit: '999xxxxxxxxxxxxx', address: '1234 High Hill Rd', item_id: params[:id], registered_user_id: current_user.id)
+    customer = Seller.where(registered_user_id: current_user.id)
+    customer.each { |ea|
+      customer = ea
+    }
+
+    if !customer.blank?
+      params[:quantity].to_i.times do |i|
+        Order.create(:bank => customer.bank_account, credit: '999xxxxxxxxxxxxx', address: customer.address, item_id: params[:id], registered_user_id: current_user.id)
+      end
+    else
+      flash[:danger] = 'You have not created buyer info for your account yet. Visit the My Account page to do so.'
+      return
     end
 
     item = Item.where(:e_info_id => params[:id]).limit(1)
@@ -42,7 +52,7 @@ class ProductController < ApplicationController
       item.update(:e_info_id => params[:id], :quantity => (item.quantity.to_i - params[:quantity].to_i).to_s)
     else
       item.update(:e_info_id => params[:id], :quantity => 0.to_s)
-      redirect_to shop_path
+      redirect_to cart_url
       return
     end
 
